@@ -8,7 +8,7 @@ for public releases
 
 Download ပြီး Setup.exe ကို ဖွင့်၍ install လုပ်ပါ။ App အဟောင်းမှ service updater ပါသော build အသစ်သို့ တစ်ကြိမ် ပြောင်းရန် လိုပါသည်။
 
-Installer SHA256: `f4a40976ea80d2517b886e3a92bf4fdabc04fe9d5e1a495c96a4fe8e0f143427`
+Installer SHA256: `015486b2186d4629805a9a19da097b1e198e12323d534fe7a5594ca5495c9a9a`
 
 ဤ repo တွင် compiled Windows update files နှင့် installer parts သာ ပါဝင်ပါသည်။ Source repo သည် private အဖြစ် ဆက်ရှိပါသည်။
 <!-- agl-downloads:end -->
