@@ -1,0 +1,30 @@
+name: Publish verified Windows release
+
+on:
+  push:
+    branches: [main]
+    paths: ['release-publisher/**', '.github/workflows/publish-release.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verified-windows-release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /release-publisher/
+      - name: Verify, upload and publish approved release assets
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 release-publisher/publish.py
