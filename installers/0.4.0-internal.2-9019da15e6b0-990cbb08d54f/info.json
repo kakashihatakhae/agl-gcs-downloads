@@ -1,0 +1,28 @@
+{
+  "build": "0.4.0-internal.2-9019da15e6b0-990cbb08d54f",
+  "file": "AGL-Planner-0.4.0-internal.2-Windows-x64-Setup.exe",
+  "size": 72795476,
+  "sha256": "f286e457f7dcd84ce58cd2d4d0829da2a97e6276c6d2475192fd85fdbaa75a24",
+  "parts": [
+    {
+      "path": "installers/0.4.0-internal.2-9019da15e6b0-990cbb08d54f/0000",
+      "size": 20971520,
+      "sha256": "5b6e59069c3e947cd3deccf7f35bdacfd7aa667873a194891b11d5041bb7f42d"
+    },
+    {
+      "path": "installers/0.4.0-internal.2-9019da15e6b0-990cbb08d54f/0001",
+      "size": 20971520,
+      "sha256": "12bc60bcd25fadba6be548fdd0fc87484161a1b61396b5acd68ca1b0fefaf971"
+    },
+    {
+      "path": "installers/0.4.0-internal.2-9019da15e6b0-990cbb08d54f/0002",
+      "size": 20971520,
+      "sha256": "f3a3729193da4eaa965d5dc4a034037f970512315ccef96e7b10253bf03868a7"
+    },
+    {
+      "path": "installers/0.4.0-internal.2-9019da15e6b0-990cbb08d54f/0003",
+      "size": 9880916,
+      "sha256": "6d659652d286165714d719269aa5ffdadd33b85a8227fe10bf5e18377b8a5692"
+    }
+  ]
+}
