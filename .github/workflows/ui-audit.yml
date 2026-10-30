@@ -1,0 +1,63 @@
+name: Native Windows UI audit
+on:
+  push:
+    branches: [main]
+    paths: ['ui-checks/**', '.github/workflows/ui-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: windows-2022
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: ui-checks
+      - name: Verify and extract test-only binary payload
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $root = Join-Path $env:GITHUB_WORKSPACE 'ui-checks/current'
+          $request = Get-Content "$root/request.json" -Raw | ConvertFrom-Json
+          $archive = Join-Path $env:RUNNER_TEMP 'ui-payload.zip'
+          $output = [System.IO.File]::Create($archive)
+          try {
+            foreach ($part in $request.parts) {
+              $file = Join-Path $root $part.name
+              if ((Get-FileHash $file -Algorithm SHA256).Hash -ne $part.sha256) { throw 'Part hash mismatch' }
+              $inputFile = [System.IO.File]::OpenRead($file)
+              try { $inputFile.CopyTo($output) } finally { $inputFile.Dispose() }
+            }
+          } finally { $output.Dispose() }
+          if ((Get-FileHash $archive -Algorithm SHA256).Hash -ne $request.archive_sha256) { throw 'Archive hash mismatch' }
+          if ((Get-FileHash "$root/NativeUiProbe.exe" -Algorithm SHA256).Hash -ne $request.probe_sha256) { throw 'Probe hash mismatch' }
+          Expand-Archive $archive -DestinationPath "$env:RUNNER_TEMP/ui-payload"
+          $app = "$env:RUNNER_TEMP/ui-payload/AGL-Planner-Windows-x64"
+          $manifest = Get-Content "$app/agl-update.json" -Raw | ConvertFrom-Json
+          if ($manifest.source_revision -ne $request.source -or $manifest.build -ne $request.build) { throw 'Wrong source/build' }
+          foreach ($entry in $manifest.files) {
+            $file = Join-Path $app $entry.path
+            if ((Get-Item $file).Length -ne $entry.size -or (Get-FileHash $file -Algorithm SHA256).Hash -ne $entry.sha256) { throw "Inventory mismatch: $($entry.path)" }
+          }
+          Copy-Item "$root/NativeUiProbe.exe*" $app
+          "AGL_UI_APP=$app" >> $env:GITHUB_ENV
+          "Verified $($request.build) source $($request.source)"
+      - name: Run Microsoft WinForms and native mouse/keyboard audit
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $results = "$env:RUNNER_TEMP/ui-results"
+          New-Item -ItemType Directory -Path $results -Force | Out-Null
+          $env:AGL_CONCEPT_SCREENSHOTS = $results
+          $env:PATH = "$env:AGL_UI_APP/x64;$env:PATH"
+          $process = Start-Process "$env:AGL_UI_APP/NativeUiProbe.exe" -WorkingDirectory $env:AGL_UI_APP -PassThru -RedirectStandardOutput "$results/stdout.txt" -RedirectStandardError "$results/stderr.txt"
+          if (-not $process.WaitForExit(240000)) { $process.Kill(); throw 'UI probe timed out' }
+          Get-Content "$results/stdout.txt"
+          Get-Content "$results/stderr.txt"
+          if ($process.ExitCode -ne 0) { throw "UI probe failed: $($process.ExitCode)" }
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-windows-ui-results
+          path: ${{ runner.temp }}/ui-results

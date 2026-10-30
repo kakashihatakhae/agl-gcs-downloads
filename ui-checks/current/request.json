@@ -1,0 +1,28 @@
+{
+  "source": "428241d153d85b61307702927cfb3952440979d7",
+  "build": "0.4.1-internal.3-428241d153d8-063a78dce998",
+  "archive_sha256": "69e76fd86c1daa1b58183bea977e16d214fe5ef91e5a898428997ca30dca02b9",
+  "parts": [
+    {
+      "name": "payload.zip.000",
+      "sha256": "4d2608777379256192f8d46e90f39681afc837e00d955f4c20111856c3f1ccef"
+    },
+    {
+      "name": "payload.zip.001",
+      "sha256": "0fb36ea8a76208d4d1dda44933ef746bdc6468e55c2791b3056d8e0a04fe15bd"
+    },
+    {
+      "name": "payload.zip.002",
+      "sha256": "e90a04e39fe0e93dfdec5a34709e0ef96fcb64119875a0af5f217923bcfcc231"
+    },
+    {
+      "name": "payload.zip.003",
+      "sha256": "4f67059651acaf6223df26443dad64d50500b3503af469c70d1e1502a349c9de"
+    },
+    {
+      "name": "payload.zip.004",
+      "sha256": "637fb6038061c1e40974226a632c8c9a0ffb399aea5cc33a7f4164de4082527d"
+    }
+  ],
+  "probe_sha256": "d5b94a2fc2e562e0e3e815ba5af7e40a912b1c437a856a8bc8030db89d5b14c5"
+}
