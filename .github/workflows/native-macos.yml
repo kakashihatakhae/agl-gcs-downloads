@@ -53,6 +53,11 @@ jobs:
         if: always()
         with:
           name: AGL-Planner-native-macOS-arm64-${{ matrix.os }}
-          path: ${{ runner.temp }}/native-mac-results/
+          compression-level: 0
+          path: |
+            ${{ runner.temp }}/native-mac-results/*.dmg
+            ${{ runner.temp }}/native-mac-results/*.sha256
+            ${{ runner.temp }}/native-mac-results/BUILD-INFO.json
+            ${{ runner.temp }}/native-mac-results/results/
           if-no-files-found: error
           retention-days: 14
