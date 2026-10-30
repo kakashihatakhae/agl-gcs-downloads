@@ -29,11 +29,11 @@
   "overrides": [
     {
       "name": "AGL Planner.exe",
-      "sha256": "063a78dce998f190c7bfcfc8c3790e8d6a5c647cbcc4efc9f5eb466e7ce9e6ff"
+      "sha256": "056c321d1e6771b521f6c61ba6bab01dc83352873e45c8377ac783fe995c22d8"
     },
     {
       "name": "MissionPlanner.Controls.dll",
-      "sha256": "ce83ecd210f2633e165ecb47a3a5c279584884f77f90510c527f7dbbba8f652f"
+      "sha256": "67e8ed4153247559b7a7b95a49f8e59a6bd2a960debd855c333714e0401b4442"
     }
   ]
 }
