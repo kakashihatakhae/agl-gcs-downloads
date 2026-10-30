@@ -1,0 +1,54 @@
+name: Native Apple Silicon application audit and DMG
+on:
+  push:
+    branches: [main]
+    paths: ['macos-native-checks/**', '.github/workflows/native-macos.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  native-mac:
+    runs-on: macos-15
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: macos-native-checks
+      - uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: '10.0.x'
+      - name: Verify compiled binary inventory
+        run: |
+          set -euo pipefail
+          python3 - <<'PYCODE'
+          from pathlib import Path
+          import hashlib,json,os,zipfile
+          folder=Path('macos-native-checks/current')
+          request=json.loads((folder/'request.json').read_text())
+          archive=Path(os.environ['RUNNER_TEMP'])/'native-input.zip'
+          with archive.open('wb') as output:
+              for part in request['parts']:
+                  data=(folder/part['name']).read_bytes()
+                  assert hashlib.sha256(data).hexdigest()==part['sha256']
+                  output.write(data)
+          assert hashlib.sha256(archive.read_bytes()).hexdigest()==request['archive_sha256']
+          stage=Path(os.environ['RUNNER_TEMP'])/'native-mac-input'
+          with zipfile.ZipFile(archive) as z:
+              assert all(not Path(n).is_absolute() and '..' not in Path(n).parts for n in z.namelist())
+              z.extractall(stage)
+          for item in json.loads((stage/'inventory.json').read_text()):
+              data=(stage/item['path']).read_bytes()
+              assert len(data)==item['size'] and hashlib.sha256(data).hexdigest()==item['sha256'],item['path']
+          print((stage/'build-info.json').read_text())
+          PYCODE
+      - name: Verify ARM64, sign, run and create DMG
+        run: |
+          set -euo pipefail
+          bash "$RUNNER_TEMP/native-mac-input/ci/finish-macos.sh" "$RUNNER_TEMP/native-mac-input" "$RUNNER_TEMP/native-mac-results"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: AGL-Planner-native-macOS-arm64
+          path: ${{ runner.temp }}/native-mac-results/
+          if-no-files-found: error
+          retention-days: 14

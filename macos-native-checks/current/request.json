@@ -1,0 +1,17 @@
+{
+  "archive_sha256": "c0fd5414c8d5afdcfd5fce8df32b0c81f192658fbe545434b2c60571d6894c26",
+  "parts": [
+    {
+      "name": "input.zip.000",
+      "sha256": "57c8b2f75bc5025ee0d257b1d4f0bc1d5a94646e02ee6e27baa188f3b68513a9"
+    },
+    {
+      "name": "input.zip.001",
+      "sha256": "206b77e436bd96b19535ff97e5ac16cda7388b84b9acbb49fd0aa7bbe39d7a7a"
+    },
+    {
+      "name": "input.zip.002",
+      "sha256": "1c6f137d3ea43f14e4c839cf8ed3ace04f94fbb8d76e772d2ac96b0a6cc94f53"
+    }
+  ]
+}
