@@ -1,0 +1,18 @@
+{
+  "version": "0.4.0-internal.2",
+  "tag": "v0.4.0-internal.2",
+  "prerelease": true,
+  "assembly_version": "0.4.0.0",
+  "build": "0.4.0-internal.2-9019da15e6b0-990cbb08d54f",
+  "source_revision": "9019da15e6b02abf0f37b0d74b96e1209fb7c2d3",
+  "source_url": "https://github.com/kakashihatakhae/agl-gcs/tree/9019da15e6b02abf0f37b0d74b96e1209fb7c2d3",
+  "platform": "Windows 10/11 x64",
+  "runtime": ".NET Framework 4.7.2+",
+  "update_branch": "release",
+  "native_windows_validation": "not performed by this packager; see release notes and CI",
+  "package_file": "AGL-Planner-0.4.0-internal.2-Windows-x64.zip",
+  "package_sha256": "1891f501ea3c1c4195eb3c1cab2d67783a78c58dbe9f7461da43fbc4bae0777e",
+  "installer_file": "AGL-Planner-0.4.0-internal.2-Windows-x64-Setup.exe",
+  "installer_sha256": "f286e457f7dcd84ce58cd2d4d0829da2a97e6276c6d2475192fd85fdbaa75a24",
+  "install_scope": "current user; LocalAppData/Programs/AGL Planner"
+}
