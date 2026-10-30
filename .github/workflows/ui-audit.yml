@@ -40,6 +40,12 @@ jobs:
             $file = Join-Path $app $entry.path
             if ((Get-Item $file).Length -ne $entry.size -or (Get-FileHash $file -Algorithm SHA256).Hash -ne $entry.sha256) { throw "Inventory mismatch: $($entry.path)" }
           }
+          foreach ($entry in $request.overrides) {
+            $file = Join-Path "$root/overrides" $entry.name
+            if ((Get-FileHash $file -Algorithm SHA256).Hash -ne $entry.sha256) { throw 'Override hash mismatch' }
+            Copy-Item $file (Join-Path $app $entry.name) -Force
+          }
+          "Test source $($request.test_source)"
           Copy-Item "$root/NativeUiProbe.exe*" $app
           "AGL_UI_APP=$app" >> $env:GITHUB_ENV
           "Verified $($request.build) source $($request.source)"
