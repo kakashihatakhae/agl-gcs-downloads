@@ -24,16 +24,16 @@
       "sha256": "637fb6038061c1e40974226a632c8c9a0ffb399aea5cc33a7f4164de4082527d"
     }
   ],
-  "probe_sha256": "ba730151ce8dd2002599ce0997a8dcd900d0ed3faac2a49614bd2fb031a55ea0",
-  "test_source": "a9750d6a23c3717a0f345548711af4b6d39d1a59",
+  "probe_sha256": "e76792927d95fe1cde5467c2444a1ccf320445db4f98df98970bef083f93dc5a",
+  "test_source": "c039dbc434d421e8b499d36569e3f1a13e192f9b",
   "overrides": [
     {
       "name": "AGL Planner.exe",
-      "sha256": "056c321d1e6771b521f6c61ba6bab01dc83352873e45c8377ac783fe995c22d8"
+      "sha256": "f5bce8ab3593e0b7eba8a60ddc8223a17986a73c2f108b4e15a748d7251420f7"
     },
     {
       "name": "MissionPlanner.Controls.dll",
-      "sha256": "67e8ed4153247559b7a7b95a49f8e59a6bd2a960debd855c333714e0401b4442"
+      "sha256": "97e7011e49b73c1ec4cf24142d5a51d9a21228cccca7b934f951594cfdcc5ac2"
     }
   ]
 }
