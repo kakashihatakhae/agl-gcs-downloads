@@ -46,9 +46,30 @@ jobs:
             Copy-Item $file (Join-Path $app $entry.name) -Force
           }
           "Test source $($request.test_source)"
+          if ((Get-FileHash "$root/VehicleProfileChecks.exe" -Algorithm SHA256).Hash -ne $request.core_tests_sha256) { throw 'Core test hash mismatch' }
+          Copy-Item "$root/VehicleProfileChecks.exe" $app
+          Copy-Item "$app/AGL Planner.exe.config" "$app/VehicleProfileChecks.exe.config"
           Copy-Item "$root/NativeUiProbe.exe*" $app
           "AGL_UI_APP=$app" >> $env:GITHUB_ENV
           "Verified $($request.build) source $($request.source)"
+      - name: Verify offline save and sync queue across Windows time zones
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $results = "$env:RUNNER_TEMP/ui-results"
+          New-Item -ItemType Directory -Path $results -Force | Out-Null
+          foreach ($zone in @('UTC', 'Myanmar Standard Time', 'SE Asia Standard Time', 'Line Islands Standard Time', 'Pacific Standard Time')) {
+            & tzutil /s $zone
+            if ($LASTEXITCODE -ne 0) { throw "Could not set time zone: $zone" }
+            $label = $zone.Replace(' ', '-')
+            $process = Start-Process "$env:AGL_UI_APP/VehicleProfileChecks.exe" -WorkingDirectory $env:AGL_UI_APP -PassThru -RedirectStandardOutput "$results/core-$label.txt" -RedirectStandardError "$results/core-$label-error.txt"
+            if (-not $process.WaitForExit(30000)) { $process.Kill(); throw 'Core test timed out' }
+            Get-Content "$results/core-$label.txt"
+            Get-Content "$results/core-$label-error.txt"
+            if ($process.ExitCode -ne 0) { throw "Core tests failed in $zone" }
+          }
+          & tzutil /s 'Myanmar Standard Time'
+          if ($LASTEXITCODE -ne 0) { throw 'Could not set Myanmar time zone for UI test' }
       - name: Run Microsoft WinForms and native mouse/keyboard audit
         shell: pwsh
         run: |
