@@ -1,0 +1,17 @@
+{
+  "version": "0.4.0-internal.2.mac.2",
+  "base_release": "v0.4.0-internal.2",
+  "base_revision": "8f7f0259948fdf32e7a5b0e429445d0535469c61",
+  "source_revision": "5efd7686144c152f56618caf0fba0569c28d5200",
+  "runtime": "osx-arm64 self-contained .NET 10",
+  "minimum_macos": "14.0",
+  "status": "development preview; not full Windows parity",
+  "native_validation": "Passed ARM64 architecture, strict signature validation, UDP protocol tests and native GUI telemetry/navigation on macOS 14.8.9",
+  "signing": "ad-hoc, not Developer ID notarized",
+  "validated_workflow": "https://github.com/kakashihatakhae/agl-gcs-downloads/actions/runs/41147997572/job/124377510358",
+  "dmg_file": "AGL-Planner-0.4.0-internal.2.mac.2-macOS-arm64.dmg",
+  "dmg_sha256": "5e59115edfaa98b77fcc2fd27bdcd2fb3d1514687d95c912b1e13c99fac30bad",
+  "tested_os": [
+    "macOS 14.8.9 arm64"
+  ]
+}
