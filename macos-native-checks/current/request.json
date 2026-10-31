@@ -1,17 +1,19 @@
 {
-  "archive_sha256": "86dea859afff5b0451e99ea3ad4d7d0b5d5be672d39b53c5b7375cb7a6fc4610",
+  "archive_sha256": "1ddd32c46a3278dd1bea19eb79c3829dbffc7163ad83df3942d73897ecdb11a3",
   "parts": [
     {
       "name": "input.zip.000",
-      "sha256": "c49b924f9ef39c6fb0425475e50bb8136bef724999e6edea9aff00b5dba822b9"
+      "sha256": "1855d87f1953dd233fffe28dcb08aafefcf7f8723881b762ba5351d256525847"
     },
     {
       "name": "input.zip.001",
-      "sha256": "6b6ff3f54afb23fd97778216289b724ef32dcc4ca0fb1569df665cb2d6762553"
+      "sha256": "af3d441ca712e0231db87f7c9a84ced918a2ac5f91b27854305b935bf2a3c179"
     },
     {
       "name": "input.zip.002",
-      "sha256": "a85d9257ee47296d9e1459966db915a3ee62b1d749f6da3abe11f8925a37a8ca"
+      "sha256": "9fba6877c0a414376c1e20a86ef5f9a9a208ad9b91c0f60ca8622df2a2b1c906"
     }
-  ]
+  ],
+  "source_revision": "5efd7686144c152f56618caf0fba0569c28d5200",
+  "version": "0.4.0-internal.2.mac.2"
 }
