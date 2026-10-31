@@ -1,39 +1,30 @@
 {
-  "source": "428241d153d85b61307702927cfb3952440979d7",
-  "build": "0.4.1-internal.3-428241d153d8-063a78dce998",
-  "archive_sha256": "69e76fd86c1daa1b58183bea977e16d214fe5ef91e5a898428997ca30dca02b9",
+  "source": "f2425c72541c037c030c73d8701e7575fe291130",
+  "test_source": "f2425c72541c037c030c73d8701e7575fe291130",
+  "build": "0.5.0-internal.1-f2425c72541c-09d102dc6ad4",
+  "archive_sha256": "ce60c298e78f78f4eb28c92ed485b3903bf99572dbcb60fb464957e5f03aad7f",
   "parts": [
     {
       "name": "payload.zip.000",
-      "sha256": "4d2608777379256192f8d46e90f39681afc837e00d955f4c20111856c3f1ccef"
+      "sha256": "46d488855864a484bc700ec7c1a985971431ef09c51aeb14141794343e971a41"
     },
     {
       "name": "payload.zip.001",
-      "sha256": "0fb36ea8a76208d4d1dda44933ef746bdc6468e55c2791b3056d8e0a04fe15bd"
+      "sha256": "e14ddd3dbad0b7f22c19adb5178ca679fda3c7bf43374efbe0207f7374a07b30"
     },
     {
       "name": "payload.zip.002",
-      "sha256": "e90a04e39fe0e93dfdec5a34709e0ef96fcb64119875a0af5f217923bcfcc231"
+      "sha256": "b169c09c3133ff3996bea2f39c263f4c003a6221bf9337b7e1e52a1ad34a1193"
     },
     {
       "name": "payload.zip.003",
-      "sha256": "4f67059651acaf6223df26443dad64d50500b3503af469c70d1e1502a349c9de"
+      "sha256": "62f7cf9d6b48663936816accb2984922c7bfc9b35cf8eaf95a7de55c4b02d7cf"
     },
     {
       "name": "payload.zip.004",
-      "sha256": "637fb6038061c1e40974226a632c8c9a0ffb399aea5cc33a7f4164de4082527d"
+      "sha256": "d215ab63f8b139ef00e34c83142fc87ef2540cc24e915a3ed749576270bca7f3"
     }
   ],
-  "probe_sha256": "e76792927d95fe1cde5467c2444a1ccf320445db4f98df98970bef083f93dc5a",
-  "test_source": "c039dbc434d421e8b499d36569e3f1a13e192f9b",
-  "overrides": [
-    {
-      "name": "AGL Planner.exe",
-      "sha256": "f5bce8ab3593e0b7eba8a60ddc8223a17986a73c2f108b4e15a748d7251420f7"
-    },
-    {
-      "name": "MissionPlanner.Controls.dll",
-      "sha256": "97e7011e49b73c1ec4cf24142d5a51d9a21228cccca7b934f951594cfdcc5ac2"
-    }
-  ]
+  "probe_sha256": "9571978bd7ccadbfc04293e8bc3812c5413fe47ba0d38a997be979e0ba8932e6",
+  "overrides": []
 }
