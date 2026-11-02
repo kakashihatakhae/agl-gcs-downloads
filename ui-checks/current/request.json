@@ -1,6 +1,6 @@
 {
   "source": "73306c1432283802770ed51cc0519132acf3d983",
-  "test_source": "f4527187fa5e3f700635d3b61b3106d8f5acae0b",
+  "test_source": "f5ba28e541653693055854ef1c146713c2477639",
   "build": "0.6.0-internal.11-73306c143228-8649071712fb",
   "archive_sha256": "e97308199735616ae997e85388421123f65a4d8a5f27e1b91bdd193fa859b373",
   "parts": [
@@ -25,7 +25,12 @@
       "sha256": "c7a50909de5cbb7f617932098744b786529e4d074e0c88e00515134165d6769f"
     }
   ],
-  "probe_sha256": "99020e1516628deb5e397699a1cf13bb47885c72c6764459779d5885f8033f5d",
+  "probe_sha256": "884381ad40dafede059b039d5dfe5ad97e76f09f8ec06ee79e22c2ed71bda77b",
   "core_tests_sha256": "fa3c2ea31839679181901132b462c387f95dddb77047fef3cd73e74ec4a17bc9",
-  "overrides": []
+  "overrides": [
+    {
+      "name": "AGL Planner.exe",
+      "sha256": "2890e41c9d7b6af8af9bf52a69adfecabe057c8e3b1b4b8f58972b50cc1ef335"
+    }
+  ]
 }
