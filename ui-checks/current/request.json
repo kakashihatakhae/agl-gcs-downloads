@@ -1,36 +1,31 @@
 {
-  "source": "73306c1432283802770ed51cc0519132acf3d983",
-  "test_source": "f5ba28e541653693055854ef1c146713c2477639",
-  "build": "0.6.0-internal.11-73306c143228-8649071712fb",
-  "archive_sha256": "e97308199735616ae997e85388421123f65a4d8a5f27e1b91bdd193fa859b373",
+  "source": "2285ef050aa463107a37498cae6f508ba51bbce7",
+  "test_source": "2285ef050aa463107a37498cae6f508ba51bbce7",
+  "build": "0.6.0-internal.12-2285ef050aa4-bd14a395caf0",
+  "archive_sha256": "4f3c8081e623ea768d5302aa1332698174c7c1cce7cb13d15698f5244d8a5509",
   "parts": [
     {
       "name": "payload.zip.000",
-      "sha256": "bda19299b76d181f61ef693e9ee4fa297c9b9db98968a2eedc8a24ceb2b45fe7"
+      "sha256": "f35979c1dcb1ed4b58c0d2244d47ec48e97e24ded80f18b1069beeabf80cd737"
     },
     {
       "name": "payload.zip.001",
-      "sha256": "756d401d38810c8fb934d3ceb13adb4cf9a6d793577b60b4d17b59e24883a98e"
+      "sha256": "634b94e240bd70b53cf08745d38952e79fed72b024fbc447dd728331516cac6d"
     },
     {
       "name": "payload.zip.002",
-      "sha256": "8038ed04f69e5a6ec2cb3e8bb244b255354bd9addd5844e43f62ea03b882fc4f"
+      "sha256": "60c7ffb56b96d7dcf02087004f083f28d9a39b1047b6af0bf0f20f5a2f99fb35"
     },
     {
       "name": "payload.zip.003",
-      "sha256": "268b04d6a092f8ab654137ac31fb54bb4da9c9d6a0ad6a29454a94ab96968510"
+      "sha256": "52803451bce4111d1984ebbe6e3cab8e2c28cd12178eae1f1898c3ac4c202b86"
     },
     {
       "name": "payload.zip.004",
-      "sha256": "c7a50909de5cbb7f617932098744b786529e4d074e0c88e00515134165d6769f"
+      "sha256": "2139f6f3a044571c4fe505fe1409e4a6f47c847883aca3eacfc06279cb5d33ff"
     }
   ],
-  "probe_sha256": "884381ad40dafede059b039d5dfe5ad97e76f09f8ec06ee79e22c2ed71bda77b",
-  "core_tests_sha256": "fa3c2ea31839679181901132b462c387f95dddb77047fef3cd73e74ec4a17bc9",
-  "overrides": [
-    {
-      "name": "AGL Planner.exe",
-      "sha256": "2890e41c9d7b6af8af9bf52a69adfecabe057c8e3b1b4b8f58972b50cc1ef335"
-    }
-  ]
+  "probe_sha256": "81aedb72335da6c7f7d5d11829ed557fe5a1d69f37feff56f114545487022f81",
+  "core_tests_sha256": "a307577ee50944568c87fed0d8b68ec2e928a07a82521b3b43a8da60fa5d0e81",
+  "overrides": []
 }
