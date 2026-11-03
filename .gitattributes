@@ -1,0 +1,5 @@
+# Published build and release bytes are immutable, including JSON/Markdown.
+builds/** -text
+installers/** -text
+release-publisher/v*/** -text
+ui-checks/current/payload.zip.* -text
