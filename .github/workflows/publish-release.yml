@@ -14,7 +14,29 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  verify-installer:
+    runs-on: windows-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          sparse-checkout-cone-mode: false
+          sparse-checkout: |
+            /release-publisher/
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify approved package bytes
+        run: python release-publisher/verify-installer.py artifacts/release
+      - name: Install, verify files and shortcuts, then uninstall
+        shell: pwsh
+        run: |
+          $aglVersion = (Get-Content artifacts/release/version.txt -Raw).Trim()
+          ./release-publisher/tools/Test-Installer.ps1 -Installer "artifacts/release/AGL-Planner-$aglVersion-Windows-x64-Setup.exe" -Payload artifacts/release/AGL-Planner-Windows-x64 -Version $aglVersion
+
   publish:
+    needs: verify-installer
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:

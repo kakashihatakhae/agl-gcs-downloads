@@ -51,7 +51,7 @@ def prepare(output):
     prefix = 'AGL-Planner-' + version + '-Windows-x64'
     installer_path = checked_path(request['installer_info'])
     if not installer_path.is_file():
-        subprocess.run(['git', 'sparse-checkout', 'add', '/' + str(installer_path.parent.relative_to(ROOT)) + '/'], cwd=ROOT, check=True)
+        subprocess.run(['git', 'sparse-checkout', 'add', '/' + installer_path.parent.relative_to(ROOT).as_posix() + '/'], cwd=ROOT, check=True)
     installer = json.loads(installer_path.read_text())
     if installer['file'] != prefix + '-Setup.exe' or request['archive']['file'] != prefix + '.zip':
         raise ValueError('Package filenames differ from the declared version')
