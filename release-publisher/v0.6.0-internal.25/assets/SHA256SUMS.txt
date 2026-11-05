@@ -1,0 +1,5 @@
+0eae39403f8a01c28573b0e1b6393b3458dc8187a61528a943aff241c6ffb067  AGL-Planner-0.6.0-internal.25-Windows-x64.zip
+37a1cc1d68a9f822b821c5a90dbebb97a992f5f661cb69fbabe96250a2d30dd1  AGL-Planner-0.6.0-internal.25-Windows-x64-Setup.exe
+9322f43ec9985a8a68bfc48f8380a0ec52d9c8f8055e20752f6a43d93fd08084  BUILD-INFO.json
+5fda6b05c38b6b16c9f506a836ff8cfcde9db672b75daf08fd1bfcdececbc082  RELEASE_NOTES.md
+95582f9eab7c97d216cf04ae5b2acee580f181e063d465f24f30d5b7bd1d4eea  README-WINDOWS-my.md
