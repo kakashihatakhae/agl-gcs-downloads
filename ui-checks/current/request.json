@@ -1,6 +1,6 @@
 {
   "source": "8dc2a0de9a7ea93bb5c68a9d3c345afaebcc0b9d",
-  "test_source": "8dc2a0de9a7ea93bb5c68a9d3c345afaebcc0b9d",
+  "test_source": "703ad2364c28bdbe9e47e2167c71785cb37b282d",
   "build": "0.6.0-internal.24-8dc2a0de9a7e-767f21dc0d45",
   "archive_sha256": "53751bede5221b54a6156e3c2ce580142d925680c32a76d85a05d245fdb7e925",
   "parts": [
@@ -26,6 +26,6 @@
     }
   ],
   "probe_sha256": "6b294702ced11ec25d5efae71aeaabeec9936270ad7b01fb9a522de89c340953",
-  "core_tests_sha256": "d1a12cfb1ab0a5a8dc10005bd2ba75454f15487819368ef823837070efcf2676",
+  "core_tests_sha256": "1bc5382af38aa85db6f2061b52b31b077e2515686ae529333ae4554bb9e813d0",
   "overrides": []
 }
