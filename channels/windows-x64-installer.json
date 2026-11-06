@@ -1,28 +1,28 @@
 {
-  "build": "0.6.0-internal.25-6b634354d7da-6ba122cc4690",
-  "file": "AGL-Planner-0.6.0-internal.25-Windows-x64-Setup.exe",
-  "size": 72906441,
-  "sha256": "37a1cc1d68a9f822b821c5a90dbebb97a992f5f661cb69fbabe96250a2d30dd1",
+  "build": "0.6.0-internal.28-a346389e37b3-a3f4d22ee149",
+  "file": "AGL-Planner-0.6.0-internal.28-Windows-x64-Setup.exe",
+  "size": 72922826,
+  "sha256": "f63032634ac37134ce93d340175bf70025cca5d91428eae6ee2b53a13d0a9936",
   "parts": [
     {
-      "path": "installers/0.6.0-internal.25-6b634354d7da-6ba122cc4690/0000",
+      "path": "installers/0.6.0-internal.28-a346389e37b3-a3f4d22ee149/0000",
       "size": 20971520,
-      "sha256": "103eeb2b9bdf406359f4f0f284a5f6750fe4093181753eb12b9dd11ac9d13839"
+      "sha256": "e50662b46cad2ff00af6ca6be60274b32474f45b056ee8708a3f02a2341e8e43"
     },
     {
-      "path": "installers/0.6.0-internal.25-6b634354d7da-6ba122cc4690/0001",
+      "path": "installers/0.6.0-internal.28-a346389e37b3-a3f4d22ee149/0001",
       "size": 20971520,
-      "sha256": "85f024fd29b5edc6522784ef660f309268a4d3ca377ff6fe47e1258db22cdc89"
+      "sha256": "5186bc451f9b6acf26fc3b97fa95b63327f88780e748f293262ec4760ee9c34f"
     },
     {
-      "path": "installers/0.6.0-internal.25-6b634354d7da-6ba122cc4690/0002",
+      "path": "installers/0.6.0-internal.28-a346389e37b3-a3f4d22ee149/0002",
       "size": 20971520,
-      "sha256": "609f1746ea60dda471dabe8495fe052d3a007010170511ad68f196724cd2aa27"
+      "sha256": "039687abf34a14afceefe604ca12259e9dec56b2e38712b48180b412e677aa4c"
     },
     {
-      "path": "installers/0.6.0-internal.25-6b634354d7da-6ba122cc4690/0003",
-      "size": 9991881,
-      "sha256": "bcc64c2e5b9ea834061e59f5c226200e8467d9a4084b302791dabfd5358c5295"
+      "path": "installers/0.6.0-internal.28-a346389e37b3-a3f4d22ee149/0003",
+      "size": 10008266,
+      "sha256": "cbee1c7499d5b3aabbfe8d91770bd04a7d067640ed8107f5539e0026da3b0303"
     }
   ]
 }
