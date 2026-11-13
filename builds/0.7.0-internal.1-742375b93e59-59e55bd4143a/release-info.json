@@ -1,0 +1,13 @@
+{
+  "version": "0.7.0-internal.1",
+  "tag": "v0.7.0-internal.1",
+  "prerelease": true,
+  "assembly_version": "0.7.0.0",
+  "build": "0.7.0-internal.1-742375b93e59-59e55bd4143a",
+  "source_revision": "742375b93e5957f600ec519e735b25edd3e19120",
+  "source_url": "https://github.com/kakashihatakhae/agl-gcs/tree/742375b93e5957f600ec519e735b25edd3e19120",
+  "platform": "Windows 10/11 x64",
+  "runtime": ".NET Framework 4.7.2+",
+  "update_branch": "release",
+  "native_windows_validation": "not performed by this packager; see release notes and CI"
+}
