@@ -1,0 +1,36 @@
+{
+  "version": "0.7.0-internal.2",
+  "installer_info": "installers/0.7.0-internal.2-c167637978de-a4261d2a13c1/info.json",
+  "archive": {
+    "file": "AGL-Planner-0.7.0-internal.2-Windows-x64.zip",
+    "size": 99642376,
+    "sha256": "f1173fd0c1af8627e4b47f997abec3a2d0128af24e50af4b5a9d1c21aaa6aae6",
+    "parts": [
+      {
+        "path": "release-publisher/v0.7.0-internal.2/archive/0000",
+        "size": 20971520,
+        "sha256": "6458898f1731c7a1ca959679829892226932baa1da724c441c540d181a49d3d3"
+      },
+      {
+        "path": "release-publisher/v0.7.0-internal.2/archive/0001",
+        "size": 20971520,
+        "sha256": "583d325a7c969ee1da180a60991d506c0ff7a9aa40b295bcc3f91aeb6ded7292"
+      },
+      {
+        "path": "release-publisher/v0.7.0-internal.2/archive/0002",
+        "size": 20971520,
+        "sha256": "b510b3e37e3c2911ab9a80f3e41bb5501cd7f74cbb7fda378a25ff56ef1d8910"
+      },
+      {
+        "path": "release-publisher/v0.7.0-internal.2/archive/0003",
+        "size": 20971520,
+        "sha256": "b816dc65e58d547dfc756f260575835e4eb9da9f9b5f29353aa64fb2b5fb6dda"
+      },
+      {
+        "path": "release-publisher/v0.7.0-internal.2/archive/0004",
+        "size": 15756296,
+        "sha256": "fa14db3ba496c01cd44e9bcda143972cb9ab6e705a24fbb86178036849166230"
+      }
+    ]
+  }
+}
