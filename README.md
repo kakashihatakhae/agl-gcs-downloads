@@ -2,17 +2,17 @@
 for public releases
 
 <!-- agl-downloads:start -->
-## Windows — 0.8.0-internal.5
+## Windows — 0.8.0-internal.6
 
-**[AGL Planner Setup.exe ကို download လုပ်ရန်](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/download/v0.8.0-internal.5/AGL-Planner-0.8.0-internal.5-Windows-x64-Setup.exe)**
+**[AGL Planner Setup.exe ကို download လုပ်ရန်](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/download/v0.8.0-internal.6/AGL-Planner-0.8.0-internal.6-Windows-x64-Setup.exe)**
 
-[Release notes နှင့် assets](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/tag/v0.8.0-internal.5) · [မြန်မာအသုံးပြုနည်း](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/download/v0.8.0-internal.5/README-WINDOWS-my.md) · [SHA256](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/download/v0.8.0-internal.5/SHA256SUMS.txt)
+[Release notes နှင့် assets](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/tag/v0.8.0-internal.6) · [မြန်မာအသုံးပြုနည်း](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/download/v0.8.0-internal.6/README-WINDOWS-my.md) · [SHA256](https://github.com/kakashihatakhae/agl-gcs-downloads/releases/download/v0.8.0-internal.6/SHA256SUMS.txt)
 
 Windows 10/11 x64 နှင့် .NET Framework 4.7.2+ လိုအပ်သည်။ GitHub login မလိုပါ။ App ကိုပိတ်ပြီး Setup.exe ဖြင့် install/update လုပ်ပါ။
 
 [လက်ရှိ installer အမြဲရယူရန်](https://agl-planner-services.quiz-checker-usage.workers.dev/downloads/windows-x64)
 
-Installer SHA256: `e495a93be5ac67fe9e4a29ca1517b42046f6ae868ddafc518186281f9bccc729`
+Installer SHA256: `d96bf933edd16c59cff2adad128703c9daf953eb72dd0906fad0305096f87543`
 
 ဤ repo သည် compiled downloads အတွက် ဖြစ်ပြီး source repo သည် private ဖြစ်သည်။
 <!-- agl-downloads:end -->
