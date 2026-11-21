@@ -63,6 +63,7 @@ def prepare(output):
         manifest = json.loads(bundle.read('AGL-Planner-Windows-x64/agl-update.json'))
         if manifest['version'] != version or manifest['build'] != installer['build']:
             raise ValueError('ZIP and installer use different builds')
+        bundled_notes = bundle.read('AGL-Planner-Windows-x64/RELEASE_NOTES.md').replace(b'\r\n', b'\n')
         for item in manifest['files']:
             raw = bundle.read('AGL-Planner-Windows-x64/' + item['path'])
             if len(raw) != item['size'] or hashlib.sha256(raw).hexdigest() != item['sha256']:
@@ -70,9 +71,20 @@ def prepare(output):
     for name in ['BUILD-INFO.json', 'README-WINDOWS-my.md', 'RELEASE_NOTES.md', 'SHA256SUMS.txt']:
         shutil.copyfile(request_path.parent / 'assets' / name, output / name)
     metadata = json.loads((output / 'BUILD-INFO.json').read_text())
-    if (metadata['source_revision'] != manifest['source_revision'] or metadata['version'] != version or
+    if (metadata['source_revision'] != manifest['source_revision'] or metadata['version'] != version or metadata['tag'] != 'v' + version or
             metadata['installer_sha256'] != installer['sha256'] or metadata['package_sha256'] != request['archive']['sha256']):
         raise ValueError('Build provenance mismatch')
+    notes = (output / 'RELEASE_NOTES.md').read_text(encoding='utf-8')
+    if notes.encode('utf-8') != bundled_notes:
+        raise ValueError('The public release notes differ from the packaged release notes')
+    if not re.match(r'\A## \[' + re.escape(version) + r'\](?:[ \t]|\n|\Z)', notes):
+        raise ValueError('The release notes heading does not match the declared version')
+    base = f'https://github.com/{REPO}/releases/download/'
+    links = re.findall(re.escape(base) + r'([^/\s)]+)/([^\s)]+)', notes)
+    required_links = {(f'v{version}', name) for name in
+                      (installer['file'], archive.name, 'SHA256SUMS.txt', 'README-WINDOWS-my.md')}
+    if set(links) != required_links:
+        raise ValueError('Release notes must link to the assets for the declared version')
     expected = {path.name for path in output.iterdir()} - {'SHA256SUMS.txt'}
     hashes = {}
     for line in (output / 'SHA256SUMS.txt').read_text().splitlines():
@@ -89,7 +101,7 @@ def prepare(output):
 def publish(output, version, hashes):
     tag = 'v' + version
     title = 'AGL Planner ' + tag + ' — Windows x64'
-    notes = (output / 'RELEASE_NOTES.md').read_text().strip()
+    notes = (output / 'RELEASE_NOTES.md').read_text(encoding='utf-8').strip()
     result = subprocess.run(['gh', 'release', 'view', tag, '--repo', REPO, '--json', 'name,body,isDraft,url'], capture_output=True, text=True)
     if result.returncode:
         if not ('404' in result.stderr or 'release not found' in result.stderr.lower()):
@@ -117,7 +129,11 @@ def publish(output, version, hashes):
             raise ValueError('Uploaded asset SHA256 verification failed; keep draft')
     if release['isDraft']:
         subprocess.run(['gh', 'release', 'edit', tag, '--repo', REPO, '--draft=false', '--prerelease', '--latest=false'], check=True)
-    print(gh('release', 'view', tag, '--repo', REPO, '--json', 'url', '--jq', '.url'))
+    published = json.loads(gh('release', 'view', tag, '--repo', REPO, '--json', 'url,name,body,isDraft,tagName'))
+    if (published['isDraft'] or published['tagName'] != tag or published['name'] != title or
+            published['body'].replace('\r\n', '\n').strip() != notes):
+        raise ValueError('Published tag, title or notes differ from the verified release')
+    print(published['url'])
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
